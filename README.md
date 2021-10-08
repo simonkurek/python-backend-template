@@ -110,16 +110,47 @@ cd scripts
 > conains `initializer.py` file which is responsible for initial  
 > database connection (in development mode `SQLite`) and routers (`endpoints`)
 
+<br>
+
 ## `app/config` directory
+
+> contains config python scripts and configuration classes
+
+<br>
 
 ## `app/core` directory
 
+> contains application models and routes
+
+<br>
+
 ## `app/core/models` directory
+
+> contains models  
+> models are classes contains data and classes through which data is loaded to database
+
+<br>
 
 ## `app/core/models/classes` directory
 
+> contains FastAPI (Pydantic) Model classes (uses to parse data)
+
+<br>
+
 ## `app/core/models/db` directory
+
+> contains database models classes (uses to save and load data from db)
+
+<br>
 
 ## `app/core/routers` directory
 
+> contains routers (endpoints) through which is processing http requests
+
+<br>
+
 ## `app/utils` directory
+
+> empty directory if you need this for other stuff
+
+<br>
