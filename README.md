@@ -11,146 +11,40 @@
 
 <br>
 
-# How to run project in development mode
+# Build and run instructions
 
 <br>
 
-### 1. Install dependencies
+## Project init (after clone or fork)
 
 ```bash
-pip3 install -r docs/requirements.txt
+make init
 ```
 
 <br>
 
-### 2. Run `module_creator.py` script (if it is first launch).
-
-> This script will create a `__init__.py` file in each subdirectory in project,  
-> which creates modules (nessesery to project works)
+## Project run in development mode
 
 ```bash
-python3 scripts/module_creator.py
+make dev-run
 ```
 
 <br>
 
-### 3. Run `dev-mode-launcher.sh` to run project
-
-> Project automatically reload after save changes in code  
-> Automatically generated documentation is available on http://localhost:8000/docs  
-> Project on default settings is available on http://localhost:8000/
+## Project to docker container build
 
 ```bash
-./scripts/dev-mode-launcher.sh
+make docker-build
 ```
 
 <br>
 
-# Settings changing
-
-### All changes you can do in .env file in main directory
-
-> You have example postgres database connection info  
-> `API_TEST` mode is default on. If you developing app you better dont disable this  
-> If you want to do production version disable `API_TEST` mode by deleting this line  
-> You have Open Api settings, you can see them in http://localhost:8000/docs
-
-<br>
-
-# Build and prepare to deploy (docker)
-
-## If you want to build app to docker container
-
-<br>
-
-### 0. Before build you had to run `module_creator.py` (if you don't have `__init__.py` files in your repo)
+## Docker container run
 
 ```bash
-python3 scripts/module_creator.py
+make docker-run
 ```
 
 <br>
 
-### 1. Go to `scripts` directory
-
-```bash
-cd scripts
-```
-
-<br>
-
-### 2. Run `docker-build.sh` script
-
-```bash
-./docker-build.sh
-```
-
-<br>
-
-### 3. If you want to run docker container
-
-> Inside this file you can specify port on which app will be available.  
-> In `docker run --name backend -p 8000:8000 server` you change second `8000` value  
-> For example:  
-> `docker run --name backend -p 8000:1234 server`  
-> App will be available on `1234` port on your machine
-
-```bash
-./docker-run.sh
-```
-
-<br>
-
-# Project info
-
-## `app` directory
-
-> contains all subdirectories with code and rest of the application  
-> contains `main.py` file, which is responsible for app booting
-> conains `initializer.py` file which is responsible for initial  
-> database connection (in development mode `SQLite`) and routers (`endpoints`)
-
-<br>
-
-## `app/config` directory
-
-> contains config python scripts and configuration classes
-
-<br>
-
-## `app/core` directory
-
-> contains application models and routes
-
-<br>
-
-## `app/core/models` directory
-
-> contains models  
-> models are classes contains data and classes through which data is loaded to database
-
-<br>
-
-## `app/core/models/classes` directory
-
-> contains FastAPI (Pydantic) Model classes (uses to parse data)
-
-<br>
-
-## `app/core/models/db` directory
-
-> contains database models classes (uses to save and load data from db)
-
-<br>
-
-## `app/core/routers` directory
-
-> contains routers (endpoints) through which is processing http requests
-
-<br>
-
-## `app/utils` directory
-
-> empty directory if you need this for other stuff
-
-<br>
+## More info about project in `docs/documentation.md`
